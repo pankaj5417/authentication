@@ -23,7 +23,7 @@ router.post("/", authenticate, async (req, res) => {
   }
 });
 
-router.get("/", async (req, res) => {
+router.get("/",authenticate, async (req, res) => {
   const products = await Product.find().lean().exec();
 
   return res.send(products);
